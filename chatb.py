@@ -19,6 +19,7 @@ def read_msg(offset):
   print(offset)
   for result in data["result"]:
     t = "text"
+    Print(result)
     if t in result["message"]:
       resp = api.send_message(result["message"]["text"])
       print(resp['message'])
