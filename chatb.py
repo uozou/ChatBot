@@ -36,7 +36,7 @@ def read_msg(offset):
 
 
 
-offset = 918801344
+offset = 918801391
 while True:
 
   offset = read_msg(offset)
