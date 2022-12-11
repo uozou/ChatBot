@@ -28,6 +28,7 @@ def read_msg(offset):
       time.sleep(4)
     else :
       continue
+      time.sleep(1)
 
 
   if data["result"]:
