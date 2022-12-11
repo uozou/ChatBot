@@ -16,25 +16,23 @@ def read_msg(offset):
   data = resp.json()
 
   print(offset)
-
   for result in data["result"]:
-    print(result["message"]["text"])
-    resp = api.send_message(result["message"]["text"])
-    print(resp['message'])
+    t = "text"
+    if t in result["message"]:
+      resp = api.send_message(result["message"]["text"])
+      print(resp['message'])
     
-    parameters ={"chat_id" : "-867171943", "text" : resp['message']}
-    respo = requests.get(url + "/sendMessage", data= parameters)
-    time.sleep(5)
+      parameters ={"chat_id" : "-867171943", "text" : resp['message']}
+      respo = requests.get(url + "/sendMessage", data= parameters)
+      time.sleep(4)
+    else :
+      continue
+
 
   if data["result"]:
     return data["result"][-1]["update_id"] + 1
   
 
-
-def send_msg():
-  parameters ={"chat_id" : "-867171943",
-               "text" : "sending msg"}
-  resp = requests.get(url + "/sendMessage", data= parameters)
 
 
 offset = 918801329
